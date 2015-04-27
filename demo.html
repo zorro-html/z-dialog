@@ -14,7 +14,7 @@
     z-dialog {
         width: 320px;
     }
-    z-dialog div {
+    z-dialog [content] {
         padding: 15px;
     }
     z-dialog input {
@@ -27,7 +27,7 @@
 <body>
 
 <z-dialog label="添加网址" confirmlabel="保存" unconfirmlabel="关闭">
-    <div>请输入你想访问的网址：<br>
+    <div content>请输入你想访问的网址：<br>
     <input type="url" data-source value="http://"></div>
 </z-dialog>
 
