@@ -1,33 +1,57 @@
-# dialog
+# `<z-dialog>`
 
-对话框
+Dialog element which supports `[data-source]` binding and `save` / `discard` event
 
-* 可以打开、保存并关闭、不保存并关闭对话框
-* 可以随意添加内容
-* 可以在打开和保存时和内容的数据进行交流
+- could open, close with save, close without save it
+- could set label, content and footer button free
+- could fire save or discard event and get content value easily at the same time
 
-该对话框会：
+## Attributes
 
-* 提供label, confirmlabel, unconfirmlabel三个外设特性
-* 自动绑定标签里带有[data-source]的第一个元素的value值
-* 提供load(value), confirm(), unconfirm()三种方法
-* 同时提供save, discard两个事件可供监听
+- `label`: dialog title
+- `confirmlabel`: confirm button label in dialog footer
+- `unconfirmlabel`: unconfirm button label in dialog footer
 
-## Example
+## Methods
 
-<z-dialog label="添加网址" confirmlabel="保存" unconfirmlabel="关闭">
-  请输入你想访问的网址：<br>
-  <input type="url" data-source value="http://">
+- `load([value])`
+- `confirm()`
+- `unconfirm()`
+
+## Events
+
+- `save`
+- `discard`
+
+## Child Elements
+
+- `[data-source]`: the element whose `value` will be communicated outside, both read and write
+
+## Examples
+
+```
+<style>
+  z-dialog {width: 320px;}
+  z-dialog z-input-text {padding: 15px;}
+</style>
+
+<z-dialog id="z-dialog-test" label="Link URL" confirmlabel="Save" unconfirmlabel="Cancel">
+  <z-input-text label="Please Input a URL:" data-source value="http://"></z-input>
 </z-dialog>
 
 <script>
-  var dialog = document.querySelector('z-dialog');
+  var dialog = document.querySelector('html /deep/ #z-dialog-test');
 
   dialog.load('http://www.google.com/');
 
-  dialog.addEventListener('save', function (e) {...});
+  dialog.addEventListener('save', function (e) {
+    // console.log('save', e.detail.value);
+  });
   // dialog.confirm();
 
-  dialog.addEventListener('discard', function (e) {...});
+  dialog.addEventListener('discard', function (e) {
+    // console.log('discard', e.detail.value);
+  });
   // dialog.unconfirm();
 </script>
+```

@@ -5,49 +5,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 
-<title>Zorro Dialog</title>
+<title>Zorro Dialog Element</title>
 
-<script src="//g.alicdn.com/mtb/lib-3rd/webcomponentsjs/webcomponents.js"></script>
-<link rel="import" href="../z-mask/z-mask.html">
+<script src="../webcomponentsjs/webcomponents.js"></script>
+<link rel="import" href="../docs-maker/z-doc.html">
+
+<link rel="import" href="../z-input/z-input.html">
 <link rel="import" href="z-dialog.html">
-<style>
-    z-dialog {
-        width: 320px;
-    }
-    z-dialog [content] {
-        padding: 15px;
-    }
-    z-dialog input {
-        display: block;
-        width: 90%;
-    }
-</style>
 
 </head>
 <body>
 
-<z-dialog label="添加网址" confirmlabel="保存" unconfirmlabel="关闭">
-    <div content>请输入你想访问的网址：<br>
-    <input type="url" data-source value="http://"></div>
-</z-dialog>
-
-<script>
-    addEventListener('polymer-ready', function () {
-        var dialog = document.querySelector('z-dialog');
-
-        dialog.load('http://www.google.com/');
-
-        dialog.addEventListener('save', function (e) {
-            console.log('save', e.detail);
-        });
-        // dialog.confirm();
-
-        dialog.addEventListener('discard', function (e) {
-            console.log('discard', e.detail);
-        });
-        // dialog.unconfirm();
-    });
-</script>
+<z-doc name="z-dialog"></z-doc>
 
 </body>
 </html>
