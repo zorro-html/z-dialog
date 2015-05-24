@@ -6,6 +6,12 @@ Dialog element which supports `[data-source]` binding and `save` / `discard` eve
 - could set label, content and footer button free
 - could fire save or discard event and get content value easily at the same time
 
+## Import
+
+```
+<link rel="import" href="z-dialog/z-dialog.html">
+```
+
 ## Attributes
 
 - `label`: dialog title
